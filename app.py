@@ -26,11 +26,14 @@ def weather_results_page():
     r = requests.get(weather_url, params=params)
     if not r.status_code == 200:
         print("error")
-        # return render_template('weather_form.html')
     results = r.json()
     city = results['name']
-    temp = results['main']['temp']
+    temp = kelvin_to_farenheit(results['main']['temp'])
     return render_template('weather_results.html', city=city, temp=temp)
+
+def kelvin_to_farenheit(k):
+    results = 1.8 * (k-273) + 32
+    return int(results)
 
 if __name__ == '__main__':
     app.run()
