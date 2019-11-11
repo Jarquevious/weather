@@ -9,19 +9,6 @@ weather_url = "https://api.openweathermap.org/data/2.5/weather"
 
 @app.route("/")
 def index():
-
-    # response = requests.get(weather_url)
-    # response_json = response.json()
-
-    # main_data = response_json["main"]
-    # temp_in_kelvin = main_data['temp']
-    # temp_celsius = temp_in_kelvin - 273.15
-    # temp_fahrenheit = temp_celsius * 9/5 +32
-
-    # print("It is now " +  str(temp_in_kelvin) + " degrees kelvin.")
-    # print("It is now " +  str(temp_celsius) + " degrees celsius.")
-    # print("It is now " +  str(temp_fahrenheit) + " degrees fahrenheit.")
-
     return render_template("index.html")
 
 @app.route("/weather")
